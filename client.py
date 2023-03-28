@@ -1,16 +1,12 @@
 import datetime
-import json
-import logging.config
+import logging
 import os
 import random
 import time
 import requests
+import log_conf
 
-log_conf_file_path = os.getenv('LOG_CONF', 'logging.json')
 server_port = os.getenv('SERVER_PORT', 8000)
-with open(log_conf_file_path) as log_conf_file:
-    logging.config.dictConfig(json.load(log_conf_file))
-
 logger = logging.getLogger('client')
 
 url = f'http://server:{server_port}'
